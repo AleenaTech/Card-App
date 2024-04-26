@@ -1,35 +1,33 @@
-import React from 'react';
-import styled from 'styled-components';
-import ListCard from './components/ListCard';
-import SideNav from './components/SideNav';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import AboutUs from "./pages/AboutUs";
+import ContactUs from "./pages/ContactUs";
+import Careers from "./pages/Careers";
+import PageNotFound from "./pages/PageNotFound";
+import Navbar from "./components/Navbar";
+import "./App.css";
 
-const AppContainer = styled.div`
-  text-align: center;
-`;
-
-const Header = styled.header`
-  background-color: #333;
-  padding: 20px;
-  color: white;
-`;
-
-const Main = styled.main`
-  padding: 20px;
-`;
+const AppLayout = () => (
+  <>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/aboutUs" element={<AboutUs />} />
+      <Route path="/contactUs" element={<ContactUs />} />
+      <Route path="/careers" element={<Careers />} />
+      <Route path="*" element={<PageNotFound />} />
+    </Routes>
+  </>
+);
 
 const App = () => {
   return (
-    <AppContainer>
-      <Header>
-        <h1>Card List Display</h1>
-        <SideNav />
-      </Header>
-      <Main>
-        <ListCard apiUrl="https://jsonplaceholder.typicode.com/posts" />
-
-      </Main>
-    </AppContainer>
+    <Router>
+      <AppLayout />
+    </Router>
   );
 }
 
 export default App;
+
