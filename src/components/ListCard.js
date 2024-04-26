@@ -1,17 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import fetchData from '../functions/api_get';
+import ListCardItem from './ListCardItem';
 
 const ListContainer = styled.div`
   margin: 20px auto;
-  max-width: 600px;
-`;
+  width: 100%;
 
-const ListItem = styled.li`
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 10px;
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .item-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(4, 1fr); /* Three items per row in web view */
+    }
+  }
 `;
 
 const LoadingMessage = styled.div`
@@ -32,7 +41,7 @@ const ListCard = ({ apiUrl }) => {
     async function fetchDataFromAPI() {
       try {
         const responseData = await fetchData(apiUrl);
-        setData(responseData);
+        setData(responseData?.recipes);
       } catch (error) {
         setError('Error fetching data. Please try again later.');
       } finally {
@@ -47,12 +56,12 @@ const ListCard = ({ apiUrl }) => {
 
   return (
     <ListContainer>
-      <h2>List Display</h2>
-      <ul>
+      <h2>Recipes</h2>
+      <div className="item-grid">
         {data.map(item => (
-          <ListItem key={item.id}>{item.title}</ListItem>
+          <ListCardItem key={item.id} item={item} />
         ))}
-      </ul>
+      </div>
     </ListContainer>
   );
 };

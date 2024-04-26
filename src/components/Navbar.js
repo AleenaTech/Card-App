@@ -11,6 +11,9 @@ const NavbarContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  z-index: 999;
+  position: fixed;
+  width:100%;
 `;
 
 const MenuBars = styled(Link)`
@@ -37,6 +40,7 @@ const NavMenu = styled.nav`
   }
   ul.nav-menu-items {
     width: 100%;
+    margin-top:80px;
   }
 `;
 
@@ -87,17 +91,13 @@ const Navbar = () => {
   return (
     <>
       <NavbarContainer>
-        <MenuBars >
-          <FaBars onClick={showSidebar} />
+        <MenuBars onClick={showSidebar}>
+          {sidebar ? <AiOutlineClose /> : <FaBars />}
         </MenuBars>
       </NavbarContainer>
       <NavMenu className={sidebar ? "nav-menu active" : "nav-menu"}>
         <ul className="nav-menu-items" onClick={showSidebar}>
-          <NavbarToggle>
-            <MenuBars >
-              <AiOutlineClose />
-            </MenuBars>
-          </NavbarToggle>
+
           {SidebarData.map((item, index) => {
             return (
               <NavText key={index} className={item.cName}>
