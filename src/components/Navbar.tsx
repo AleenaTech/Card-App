@@ -8,19 +8,28 @@ import styled from "styled-components";
 const NavbarContainer = styled.div`
     background-color: #ffffff;
     height: 80px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
     z-index: 999;
     position: fixed;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 `;
 
 const MenuBars = styled(Link)`
-    margin-left: 2rem;
-    font-size: 2rem;
+    margin-right: 1rem;
+    font-size: 1.5rem;
     background: none;
     color: #000;
+`;
+const LogoContainer = styled(Link)`
+    height: 70px;
+    width: 100px;
+
+    img {
+        height: 100%;
+        width: 100%;
+    }
 `;
 
 const NavMenu = styled.nav<{ sidebar: boolean }>`
@@ -31,7 +40,7 @@ const NavMenu = styled.nav<{ sidebar: boolean }>`
     justify-content: center;
     position: fixed;
     top: 0;
-    left: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
+    right: ${({ sidebar }) => (sidebar ? "0" : "-100%")};
     transition: 850ms;
     margin-top: 80px;
     z-index: 9;
@@ -87,6 +96,12 @@ const Navbar: React.FC = () => {
     return (
         <>
             <NavbarContainer>
+                <LogoContainer to={`/`}>
+                    <img
+                        src={require("../assets/images/recipe-logo.jpeg")}
+                        alt="Logo"
+                    />
+                </LogoContainer>
                 <MenuBars to="#" onClick={showSidebar}>
                     {sidebar ? <AiOutlineClose /> : <FaBars />}
                 </MenuBars>
