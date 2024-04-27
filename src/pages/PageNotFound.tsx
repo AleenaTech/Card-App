@@ -1,7 +1,7 @@
 import React from "react";
-import { PageContainer } from './styles/PageStyle';
+import { PageContainer } from "./styles/PageStyle";
 
-const PageNotFound = () => {
+const PageNotFound: React.FC = () => {
     return (
         <PageContainer className="page-not-found-container">
             <h2>404</h2>

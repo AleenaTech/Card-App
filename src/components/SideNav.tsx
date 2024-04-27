@@ -1,23 +1,23 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Nav = styled.nav`
-  background-color: #333;
-  padding: 20px;
-  color: white;
+    background-color: #333;
+    padding: 20px;
+    color: white;
 `;
 
 const NavList = styled.ul`
-  list-style-type: none;
-  padding: 0;
+    list-style-type: none;
+    padding: 0;
 `;
 
 const NavItem = styled.li`
-  display: inline;
-  margin-right: 20px;
+    display: inline;
+    margin-right: 20px;
 `;
 
-const SideNav = () => {
+const SideNav: React.FC = () => {
     return (
         <Nav>
             <NavList>
