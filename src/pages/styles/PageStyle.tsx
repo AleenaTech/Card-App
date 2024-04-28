@@ -5,8 +5,8 @@ export const PageContainer = styled.div`
     align-items: center;
     justify-content: center;
     font-size: 3rem;
-    background-color: #000;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
     flex-direction: column;
     min-height: 100vh;
     max-width: 1400px;

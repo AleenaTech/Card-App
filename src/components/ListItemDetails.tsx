@@ -21,12 +21,15 @@ interface Recipe {
 }
 
 const ListItemDetailsContainer = styled.div`
-    padding: 40px 20px;
+    padding: 20px 20px 40px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    margin-top: 200px;
+    margin-top: 50px;
     position: relative;
     width: 100%;
+    @media (min-width: 768px) {
+        margin-top: 200px;
+    }
     h4 {
         font-size: 20px;
         padding: 10px 0 15px;
@@ -34,42 +37,57 @@ const ListItemDetailsContainer = styled.div`
 `;
 
 const RecipeImage = styled.div`
-    width: 300px;
+    width: 100%;
     height: 300px;
     border-radius: 8px;
     margin-bottom: 20px;
-    position: absolute;
-    right: 22px;
-    top: -155px;
+    position: unset;
+    overflow: hidden;
+
+    @media (min-width: 768px) {
+        width: 300px;
+        position: absolute;
+        right: 22px;
+        top: -155px;
+    }
     img {
-        border-radius: 50%;
+        border-radius: 8px;
         width: 100%;
         width: 100%;
+        object-fit: cover;
+
+        @media (min-width: 768px) {
+            border-radius: 50%;
+        }
     }
 `;
 
 const RecipeTitle = styled.h5`
     margin-bottom: 10px;
+    font-size: 28px;
 `;
 
 const RecipeInfo = styled.div`
     display: grid;
     margin-bottom: 20px;
     gap: 10px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 `;
 
 const InfoMainContent = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: self-start;
 `;
 
 const InfoSubContent = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: self-start;
-    margin-top: 20px;
+    margin-top: 10px;
     flex-direction: column;
     gap: 20px;
     padding-bottom: 20px;
@@ -111,13 +129,17 @@ const InfoCard = styled.div`
     border-radius: 8px;
     padding: 20px;
     text-align: center;
-    border: 1px solid #ffffff;
+    border: 1px solid #ccc;
     font-size: 12px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    p {
+        font-size: 14px;
+        font-weight: bold;
+    }
 `;
 
 const InfoIcon = styled.div`

@@ -6,7 +6,7 @@ import { SidebarData } from "./SidebarData";
 import styled from "styled-components";
 
 const NavbarContainer = styled.div`
-    background-color: #ffffff;
+    background-color: #000000;
     height: 80px;
     z-index: 999;
     position: fixed;
@@ -17,11 +17,12 @@ const NavbarContainer = styled.div`
     justify-content: space-between;
 `;
 
-const MenuBars = styled(Link)`
+const MenuBars = styled.div`
     margin-right: 1rem;
     font-size: 1.5rem;
     background: none;
-    color: #000;
+    color: #ffffff;
+    cursor: pointer;
 `;
 const LogoContainer = styled(Link)`
     height: 70px;
@@ -30,11 +31,12 @@ const LogoContainer = styled(Link)`
     img {
         height: 100%;
         width: 100%;
+        filter: invert(1);
     }
 `;
 
 const NavMenu = styled.nav<{ sidebar: boolean }>`
-    background-color: #ffffff;
+    background-color: #000000;
     width: 300px;
     height: 100vh;
     display: flex;
@@ -61,7 +63,7 @@ const NavText = styled.li`
 
 const NavLink = styled(Link)`
     text-decoration: none;
-    color: #151414;
+    color: #ffffff;
     font-size: 18px;
     width: 95%;
     height: 100%;
@@ -71,8 +73,8 @@ const NavLink = styled(Link)`
     border-radius: 4px;
 
     &:hover {
-        background-color: #000000;
-        color: #fff;
+        background-color: #ffffff;
+        color: #000000;
     }
 `;
 
@@ -99,11 +101,11 @@ const Navbar: React.FC = () => {
             <NavbarContainer>
                 <LogoContainer to={`/`}>
                     <img
-                        src={require("../assets/images/recipe-logo.jpeg")}
+                        src={require("../assets/images/recipe.png")}
                         alt="Logo"
                     />
                 </LogoContainer>
-                <MenuBars to="#" onClick={showSidebar}>
+                <MenuBars onClick={showSidebar}>
                     {sidebar ? <AiOutlineClose /> : <FaBars />}
                 </MenuBars>
             </NavbarContainer>

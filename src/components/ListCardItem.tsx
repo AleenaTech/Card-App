@@ -29,7 +29,7 @@ const ListItemLink = styled.div`
 
 const ListItemTitle = styled.h5`
     padding: 10px 0 20px;
-    color: #ffffff;
+    color: #000000;
     text-transform: capitalize;
     font-size: 18px;
     @media (min-width: 768px) {
