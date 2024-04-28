@@ -47,26 +47,32 @@ const ListContainer = styled.div`
 
     .filter-buttons {
         display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
+        overflow-x: auto;
         gap: 10px;
+        padding: 10px 0 25px;
     }
 
     .filter-button {
-        padding: 8px 16px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #f0f0f0;
+        padding: 6px 20px;
+        border: 1px solid #000000;
+        border-radius: 25px;
+        background-color: transparent;
+        color: #000000;
+        font-size: 16px;
+        height: 35px;
+        min-width: fit-content;
         cursor: pointer;
+        transition: all 0.3s ease;
 
         &:hover {
-            background-color: #e0e0e0;
+            background-color: #000000;
+            color: #ffffff;
         }
-    }
 
-    .filter-button.active {
-        background-color: #007bff;
-        color: #fff;
+        &.active {
+            background-color: #000000;
+            color: #ffffff;
+        }
     }
 `;
 
