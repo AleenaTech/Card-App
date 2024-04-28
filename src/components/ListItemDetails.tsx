@@ -45,6 +45,8 @@ const RecipeImage = styled.div`
     overflow: hidden;
 
     @media (min-width: 768px) {
+        border-radius: 50%;
+        box-shadow: -10px 6px 11px rgb(0 0 0 / 71%);
         width: 300px;
         position: absolute;
         right: 22px;
