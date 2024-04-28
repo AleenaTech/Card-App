@@ -21,11 +21,12 @@ interface Recipe {
 }
 
 const ListItemDetailsContainer = styled.div`
-    padding: 20px;
+    padding: 40px 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    margin-top: 100px;
+    margin-top: 200px;
     position: relative;
+    width: 100%;
     h4 {
         font-size: 20px;
         padding: 10px 0 15px;
@@ -38,7 +39,8 @@ const RecipeImage = styled.div`
     border-radius: 8px;
     margin-bottom: 20px;
     position: absolute;
-    right: 10px;
+    right: 22px;
+    top: -155px;
     img {
         border-radius: 50%;
         width: 100%;
@@ -60,21 +62,49 @@ const RecipeInfo = styled.div`
 const InfoMainContent = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
 `;
 
 const InfoSubContent = styled.div`
     display: flex;
     justify-content: space-between;
+    align-items: self-start;
     margin-top: 20px;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 20px;
 `;
 
 const ReviewWrap = styled.div`
     flex-grow: 1;
 `;
 
+const RatingContainer = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 10px;
+`;
+
+const StarIcon = styled(BsStarFill)`
+    color: #fadb14;
+    font-size: 16px;
+`;
+
+const RatingText = styled.span`
+    margin-left: 5px;
+    font-size: 16px;
+`;
+
 const RecipeType = styled.div`
     flex-grow: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    flex-direction: column;
+`;
+
+const RecipeTypeContent = styled.div`
+    font-size: 16px;
 `;
 
 const InfoCard = styled.div`
@@ -100,7 +130,7 @@ const IngredientsList = styled.ul`
     list-style-position: inside;
     padding: 0;
     li {
-        font-size: 14px;
+        font-size: 15px;
         padding-bottom: 8px;
     }
 `;
@@ -109,7 +139,7 @@ const InstructionList = styled.ol`
     list-style-position: inside;
     padding: 0;
     li {
-        font-size: 14px;
+        font-size: 15px;
         padding-bottom: 8px;
     }
 `;
@@ -131,33 +161,24 @@ const ListItemDetails: React.FC = () => {
                 </InfoMainContent>
                 <InfoSubContent>
                     <ReviewWrap>
-                        <InfoCard>
-                            <InfoIcon>
-                                <BsStarFill />
-                            </InfoIcon>
-                            <p>
-                                Rating:{" "}
-                                {recipe.rating ? (
-                                    <>
-                                        {recipe.rating}{" "}
-                                        <span>
-                                            ({recipe.reviewCount || 0} reviews)
-                                        </span>
-                                    </>
-                                ) : (
-                                    "N/A"
-                                )}
-                            </p>
-                        </InfoCard>
+                        <RatingContainer>
+                            <StarIcon />
+                            <StarIcon />
+                            <StarIcon />
+                            <StarIcon />
+                            <StarIcon />
+                            <RatingText>
+                                ({recipe.reviewCount || 0} reviews)
+                            </RatingText>
+                        </RatingContainer>
                     </ReviewWrap>
                     <RecipeType>
-                        <InfoCard>
-                            <InfoIcon>
-                                <BsCardHeading />
-                            </InfoIcon>
+                        <RecipeTypeContent>
                             <p>Difficulty: {recipe.difficulty || "N/A"}</p>
+                        </RecipeTypeContent>
+                        <RecipeTypeContent>
                             <p>Cuisine: {recipe.cuisine || "N/A"}</p>
-                        </InfoCard>
+                        </RecipeTypeContent>
                     </RecipeType>
                 </InfoSubContent>
                 <RecipeInfo>
