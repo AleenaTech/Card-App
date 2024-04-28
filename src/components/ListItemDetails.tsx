@@ -109,7 +109,7 @@ const RecipeTypeContent = styled.div`
 
 const InfoCard = styled.div`
     border-radius: 8px;
-    padding: 10px 20px;
+    padding: 20px;
     text-align: center;
     border: 1px solid #ffffff;
     font-size: 12px;
@@ -151,89 +151,87 @@ const ListItemDetails: React.FC = () => {
     if (!recipe) return <div>Recipe not found</div>;
 
     return (
-        <PageContainer className="recipe-detail-container">
-            <ListItemDetailsContainer>
-                <InfoMainContent>
-                    <RecipeImage>
-                        <img src={recipe.image || ""} alt={recipe.name} />
-                    </RecipeImage>
-                    <RecipeTitle>{recipe.name}</RecipeTitle>
-                </InfoMainContent>
-                <InfoSubContent>
-                    <ReviewWrap>
-                        <RatingContainer>
-                            <StarIcon />
-                            <StarIcon />
-                            <StarIcon />
-                            <StarIcon />
-                            <StarIcon />
-                            <RatingText>
-                                ({recipe.reviewCount || 0} reviews)
-                            </RatingText>
-                        </RatingContainer>
-                    </ReviewWrap>
-                    <RecipeType>
-                        <RecipeTypeContent>
-                            <p>Difficulty: {recipe.difficulty || "N/A"}</p>
-                        </RecipeTypeContent>
-                        <RecipeTypeContent>
-                            <p>Cuisine: {recipe.cuisine || "N/A"}</p>
-                        </RecipeTypeContent>
-                    </RecipeType>
-                </InfoSubContent>
-                <RecipeInfo>
-                    <InfoCard>
-                        <InfoIcon>
-                            <BsPeople />
-                        </InfoIcon>
-                        <p>Servings</p> <p>{recipe.servings || "N/A"}</p>
-                    </InfoCard>
-                    <InfoCard>
-                        <InfoIcon>
-                            <BsClock />
-                        </InfoIcon>
-                        <p>Prep Time</p>{" "}
-                        <p>
-                            {recipe.prepTimeMinutes
-                                ? recipe.prepTimeMinutes + " minutes"
-                                : "N/A"}
-                        </p>
-                    </InfoCard>
-                    <InfoCard>
-                        <InfoIcon>
-                            <PiCookingPot />
-                        </InfoIcon>
-                        <p>Cook Time</p>{" "}
-                        <p>
-                            {recipe.cookTimeMinutes
-                                ? recipe.cookTimeMinutes + " minutes"
-                                : "N/A"}
-                        </p>
-                    </InfoCard>
-                    <InfoCard>
-                        <InfoIcon>
-                            <PiChartDonutLight />
-                        </InfoIcon>
-                        <p>Calories</p>{" "}
-                        <p>{recipe.caloriesPerServing + " kcal" || "N/A"}</p>
-                    </InfoCard>
-                </RecipeInfo>
-                <h4>Ingredients</h4>
-                <IngredientsList>
-                    {recipe.ingredients &&
-                        recipe.ingredients.map((ingredient, index) => (
-                            <li key={index}>{ingredient}</li>
-                        ))}
-                </IngredientsList>
-                <h4>Instructions</h4>
-                <InstructionList>
-                    {recipe.instructions &&
-                        recipe.instructions.map((instruction, index) => (
-                            <li key={index}>{instruction}</li>
-                        ))}
-                </InstructionList>
-            </ListItemDetailsContainer>
-        </PageContainer>
+        <ListItemDetailsContainer>
+            <InfoMainContent>
+                <RecipeImage>
+                    <img src={recipe.image || ""} alt={recipe.name} />
+                </RecipeImage>
+                <RecipeTitle>{recipe.name}</RecipeTitle>
+            </InfoMainContent>
+            <InfoSubContent>
+                <ReviewWrap>
+                    <RatingContainer>
+                        <StarIcon />
+                        <StarIcon />
+                        <StarIcon />
+                        <StarIcon />
+                        <StarIcon />
+                        <RatingText>
+                            ({recipe.reviewCount || 0} reviews)
+                        </RatingText>
+                    </RatingContainer>
+                </ReviewWrap>
+                <RecipeType>
+                    <RecipeTypeContent>
+                        <p>Difficulty: {recipe.difficulty || "N/A"}</p>
+                    </RecipeTypeContent>
+                    <RecipeTypeContent>
+                        <p>Cuisine: {recipe.cuisine || "N/A"}</p>
+                    </RecipeTypeContent>
+                </RecipeType>
+            </InfoSubContent>
+            <RecipeInfo>
+                <InfoCard>
+                    <InfoIcon>
+                        <BsPeople />
+                    </InfoIcon>
+                    <p>Servings</p> <p>{recipe.servings || "N/A"}</p>
+                </InfoCard>
+                <InfoCard>
+                    <InfoIcon>
+                        <BsClock />
+                    </InfoIcon>
+                    <p>Prep Time</p>{" "}
+                    <p>
+                        {recipe.prepTimeMinutes
+                            ? recipe.prepTimeMinutes + " minutes"
+                            : "N/A"}
+                    </p>
+                </InfoCard>
+                <InfoCard>
+                    <InfoIcon>
+                        <PiCookingPot />
+                    </InfoIcon>
+                    <p>Cook Time</p>{" "}
+                    <p>
+                        {recipe.cookTimeMinutes
+                            ? recipe.cookTimeMinutes + " minutes"
+                            : "N/A"}
+                    </p>
+                </InfoCard>
+                <InfoCard>
+                    <InfoIcon>
+                        <PiChartDonutLight />
+                    </InfoIcon>
+                    <p>Calories</p>{" "}
+                    <p>{recipe.caloriesPerServing + " kcal" || "N/A"}</p>
+                </InfoCard>
+            </RecipeInfo>
+            <h4>Ingredients</h4>
+            <IngredientsList>
+                {recipe.ingredients &&
+                    recipe.ingredients.map((ingredient, index) => (
+                        <li key={index}>{ingredient}</li>
+                    ))}
+            </IngredientsList>
+            <h4>Instructions</h4>
+            <InstructionList>
+                {recipe.instructions &&
+                    recipe.instructions.map((instruction, index) => (
+                        <li key={index}>{instruction}</li>
+                    ))}
+            </InstructionList>
+        </ListItemDetailsContainer>
     );
 };
 

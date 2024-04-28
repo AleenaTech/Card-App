@@ -6,7 +6,7 @@ import ContactUs from "./pages/ContactUs";
 import Careers from "./pages/Careers";
 import PageNotFound from "./pages/PageNotFound";
 import Navbar from "./components/Navbar";
-import ListItemDetails from "./components/ListItemDetails";
+import RecipeDetails from "./pages/RecipeDetails";
 import "./App.css";
 
 const AppLayout: React.FC = () => (
@@ -15,7 +15,7 @@ const AppLayout: React.FC = () => (
         <Routes>
             <Route path="/" element={<Recipes />} />
             <Route path="/recipes" element={<Recipes />} />
-            <Route path="/recipes/:id" element={<ListItemDetails />} />
+            <Route path="/recipes/:id" element={<RecipeDetails />} />
             <Route path="/aboutUs" element={<AboutUs />} />
             <Route path="/contactUs" element={<ContactUs />} />
             <Route path="/careers" element={<Careers />} />
