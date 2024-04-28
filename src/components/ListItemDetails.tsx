@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { PageContainer } from "../pages/styles/PageStyle";
 import { BsStarFill, BsClock, BsPeople, BsCardHeading } from "react-icons/bs";
 import { PiCookingPot, PiChartDonutLight } from "react-icons/pi";
+import useScrollToTop from "../customHooks/useScrollToTop";
 
 interface Recipe {
     name: string;
@@ -169,6 +170,8 @@ const InstructionList = styled.ol`
 `;
 
 const ListItemDetails: React.FC = () => {
+    useScrollToTop();
+
     const location = useLocation();
     const recipe: Recipe | undefined = location.state && location.state.recipe;
 
