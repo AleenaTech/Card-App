@@ -5,13 +5,13 @@ import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import Careers from "./pages/Careers";
 import PageNotFound from "./pages/PageNotFound";
-import Navbar from "./components/Navbar";
+import Header from "./components/Header";
 import RecipeDetails from "./pages/RecipeDetails";
 import "./App.css";
 
 const AppLayout: React.FC = () => (
     <>
-        <Navbar />
+        <Header />
         <Routes>
             <Route path="/" element={<Recipes />} />
             <Route path="/recipes" element={<Recipes />} />

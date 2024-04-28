@@ -41,8 +41,8 @@ export const SidebarData: SidebarItem[] = [
         cName: "nav-text",
     },
     {
-        title: "Help",
-        path: "/help",
+        title: "Blog",
+        path: "/blog",
         icon: <MdHelpOutline />,
         cName: "nav-text",
     },

@@ -65,12 +65,12 @@ const ListContainer = styled.div`
         transition: all 0.3s ease;
 
         &:hover {
-            background-color: #000000;
+            background-color: #0e0e0e;
             color: #ffffff;
         }
 
         &.active {
-            background-color: #000000;
+            background-color: #0e0e0e;
             color: #ffffff;
         }
     }

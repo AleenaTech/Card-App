@@ -4,9 +4,9 @@ import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 import styled from "styled-components";
-
+import HeaderNav from "./HeaderNav";
 const NavbarContainer = styled.div`
-    background-color: #000000;
+    background-color: #0e0e0e;
     height: 80px;
     z-index: 999;
     position: fixed;
@@ -23,6 +23,9 @@ const MenuBars = styled.div`
     background: none;
     color: #ffffff;
     cursor: pointer;
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
 `;
 const LogoContainer = styled(Link)`
     height: 70px;
@@ -36,7 +39,7 @@ const LogoContainer = styled(Link)`
 `;
 
 const NavMenu = styled.nav<{ sidebar: boolean }>`
-    background-color: #000000;
+    background-color: #0e0e0e;
     width: 300px;
     height: 100vh;
     display: flex;
@@ -91,7 +94,7 @@ const Span = styled.span`
     margin-left: 16px;
 `;
 
-const Navbar: React.FC = () => {
+const Header: React.FC = () => {
     const [sidebar, setSidebar] = useState(false);
 
     const showSidebar = () => setSidebar(!sidebar);
@@ -105,6 +108,7 @@ const Navbar: React.FC = () => {
                         alt="Logo"
                     />
                 </LogoContainer>
+                <HeaderNav />
                 <MenuBars onClick={showSidebar}>
                     {sidebar ? <AiOutlineClose /> : <FaBars />}
                 </MenuBars>
@@ -125,4 +129,4 @@ const Navbar: React.FC = () => {
     );
 };
 
-export default Navbar;
+export default Header;
