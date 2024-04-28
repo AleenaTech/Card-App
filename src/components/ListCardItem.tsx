@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 interface Item {
@@ -8,7 +8,7 @@ interface Item {
     image: string;
 }
 
-const ListItemLink = styled(Link)`
+const ListItemLink = styled.div`
     position: relative;
     border: 1px solid #ccc;
     padding: 10px;
@@ -60,9 +60,15 @@ interface ListCardItemProps {
 }
 
 const ListCardItem: React.FC<ListCardItemProps> = ({ item }) => {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        console.log("jjjjj", item);
+        navigate(`/recipes/${item.id}`, { state: { recipe: item } });
+    };
+
     return (
-        <ListItemLink to={`/${item.id}`} className="list-item">
-            <ListItemTitle>{item.name}</ListItemTitle>
+        <ListItemLink className="list-item" onClick={handleClick}>
             <PosterWrap>
                 <img
                     src={item.image || require("../assets/images/NoImage.png")}
@@ -72,6 +78,7 @@ const ListCardItem: React.FC<ListCardItemProps> = ({ item }) => {
                     }}
                 />
             </PosterWrap>
+            <ListItemTitle>{item.name}</ListItemTitle>
         </ListItemLink>
     );
 };

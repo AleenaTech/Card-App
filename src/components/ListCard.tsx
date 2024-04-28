@@ -39,7 +39,7 @@ const ListContainer = styled.div`
         @media (min-width: 992px) {
             grid-template-columns: repeat(4, 1fr);
         }
-        @media (min-width: 1200px) {
+        @media (min-width: 1700px) {
             grid-template-columns: repeat(5, 1fr);
         }
     }

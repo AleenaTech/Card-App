@@ -10,6 +10,7 @@ const NavbarContainer = styled.div`
     height: 80px;
     z-index: 999;
     position: fixed;
+    top: 0;
     width: 100%;
     display: flex;
     align-items: center;

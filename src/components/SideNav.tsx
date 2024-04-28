@@ -21,7 +21,7 @@ const SideNav: React.FC = () => {
     return (
         <Nav>
             <NavList>
-                <NavItem>Home</NavItem>
+                <NavItem>Recipes</NavItem>
                 <NavItem>About</NavItem>
                 <NavItem>Contact</NavItem>
             </NavList>

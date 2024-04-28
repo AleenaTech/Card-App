@@ -17,7 +17,7 @@ interface SidebarItem {
 
 export const SidebarData: SidebarItem[] = [
     {
-        title: "Home",
+        title: "Recipes",
         path: "/",
         icon: <AiFillHome />,
         cName: "nav-text",
